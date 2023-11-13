@@ -1,0 +1,17 @@
+{
+  "name": "fin_trackr",
+  "version": "1.0.0",
+  "description": "FinTrackr is an exceptional financial tracking application designed to put you in control of your personal finances. With its intuitive interface and robust features, FinTrackr empowers you to effortlessly manage income, expenses, and savings while gaining deep insights into your financial patterns. Whether you're budgeting, aiming for financial milestones, or making informed decisions, FinTrackr is your trusted companion.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "flutter run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
