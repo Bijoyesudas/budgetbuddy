@@ -14,7 +14,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'screens/accounts_screen/balance_calculation.dart';
-
+import 'package:local_auth/local_auth.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
@@ -37,15 +37,50 @@ Future<void> main() async {
   if (!Hive.isAdapterRegistered(TransactionModelAdapter().typeId)) {
     Hive.registerAdapter(TransactionModelAdapter());
   }
-  // await addInitialData();
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
-      .then((_) async {
-    SharedPreferences preferences = await SharedPreferences.getInstance();
-    bool hasSeenWelcomeScreen =
-        preferences.getBool('hasSeenWelcomeScreen') ?? false;
-    runApp(MyApp(hasSeenWelcomeScreen));
-  });
+
+ // Fingerprint authentication
+  final LocalAuthentication auth = LocalAuthentication();
+  bool authenticated = false;
+  try {
+    authenticated = await auth.authenticate(
+      localizedReason: 'Please authenticate to access the app',
+      options: const AuthenticationOptions(
+        biometricOnly: false,
+        stickyAuth: true,
+      ),
+    );
+  } on PlatformException catch (e) {
+    print('Error authenticating: $e');
+  }
+
+  // Proceed to the app if authenticated
+  if (authenticated) {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((_) async {
+      SharedPreferences preferences = await SharedPreferences.getInstance();
+      bool hasSeenWelcomeScreen = preferences.getBool('hasSeenWelcomeScreen') ?? false;
+      runApp(MyApp(hasSeenWelcomeScreen));
+    });
+  } else {
+    print('Authentication failed');
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((_) async {
+      // Quit the application if not authenticated
+      SystemNavigator.pop();
+    });
+  }
 }
+
+
+  // await addInitialData();
+  // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+  //     .then((_) async {
+  //   SharedPreferences preferences = await SharedPreferences.getInstance();
+  //   bool hasSeenWelcomeScreen =
+  //       preferences.getBool('hasSeenWelcomeScreen') ?? false;
+  //   runApp(MyApp(hasSeenWelcomeScreen));
+//   });
+// }
+
+
 
 class MyApp extends StatelessWidget {
   final bool hasScreenWelcomeScreen;
@@ -66,7 +101,7 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitDown,
     ]);
     return MaterialApp(
-      title: 'Budget-Buddy',
+      title: 'Budget Buddy',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         appBarTheme: const AppBarTheme(color: AppColor.ftScafoldColor),
