@@ -33,20 +33,20 @@ class AppColor {
 
 class AppText {
   static const String appName = 'Budget Buddy';
-  static const String appVersion = 'Version 1.0.0';
-  static const String appVersionNumber = ' 1.0.0';
-  static const String appUpdateDate = '27-Aug-2023';
-  static const String appTermsConditonUpdateDate = '27-Aug-2023';
-  static const String authorName = 'Joyal Joseph';
-  static const String companyName = 'Hello Tech Malayalam';
-  static const String website = 'www.hellotechmalayalam.com';
-  static const String email = 'hellotechmalayalam@gmail.com';
-  static const String linkedin = 'linkedin.com/in/joyaljoseph';
-  static const String contactNumber = '+91 623 8189 424';
+  static const String appVersion = '';
+  static const String appVersionNumber = ' ';
+  static const String appUpdateDate = '';
+  static const String appTermsConditonUpdateDate = '';
+  static const String authorName = '';
+  static const String companyName = '';
+  static const String website = '';
+  static const String email = '';
+  static const String linkedin = '';
+  static const String contactNumber = '';
 }
 
 email() async {
-  Uri url = Uri.parse('https://mail.google.com/mail/u/0/#inbox');
+  Uri url = Uri.parse('');
   if (await launchUrl(url)) {
     await launchUrl(url);
   } else {
@@ -55,7 +55,7 @@ email() async {
 }
 
 youTube() async {
-  Uri url = Uri.parse('https://www.youtube.com/@HelloTechMalayalam');
+  Uri url = Uri.parse('');
   if (await launchUrl(url)) {
     await launchUrl(url);
   } else {
@@ -64,7 +64,7 @@ youTube() async {
 }
 
 linkidin() async {
-  Uri url = Uri.parse('https://www.linkedin.com/in/joyaljoseph/');
+  Uri url = Uri.parse('');
   if (await launchUrl(url)) {
     await launchUrl(url);
   } else {
@@ -73,7 +73,7 @@ linkidin() async {
 }
 
 instagram() async {
-  Uri url = Uri.parse('https://www.instagram.com/hellotechmalayalam/');
+  Uri url = Uri.parse('');
   if (await launchUrl(url)) {
     await launchUrl(url);
   } else {
@@ -82,7 +82,7 @@ instagram() async {
 }
 
 facebook() async {
-  Uri url = Uri.parse('https://www.facebook.com/hellotechmalayalamonline');
+  Uri url = Uri.parse('');
   if (await launchUrl(url)) {
     await launchUrl(url);
   } else {
@@ -91,7 +91,7 @@ facebook() async {
 }
 
 website() async {
-  Uri url = Uri.parse('https://hellotechmalayalam.com');
+  Uri url = Uri.parse('');
   if (await launchUrl(url)) {
     await launchUrl(url);
   } else {
@@ -100,7 +100,7 @@ website() async {
 }
 
 gitHub() async {
-  Uri url = Uri.parse('https://github.com/joyaljosephnote');
+  Uri url = Uri.parse('');
   if (await launchUrl(url)) {
     await launchUrl(url);
   } else {

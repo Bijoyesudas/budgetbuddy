@@ -1,11 +1,8 @@
 import 'package:fin_trackr/constants/constant.dart';
-import 'package:fin_trackr/details/about_app/about_app.dart';
 import 'package:fin_trackr/screens/app_settings_screen/account_group_settings/account_group.dart';
-import 'package:fin_trackr/screens/app_settings_screen/contact_us.dart';
 import 'package:fin_trackr/screens/app_settings_screen/currency_selector/currency_selector.dart';
 import 'package:fin_trackr/screens/app_settings_screen/expense_category_settings/expense_category_list_view.dart';
 import 'package:fin_trackr/screens/app_settings_screen/income_category_settings/income_category_list_view.dart';
-import 'package:fin_trackr/screens/app_settings_screen/user_guide/user_guide_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'dart:math' as math;
@@ -192,42 +189,7 @@ class AppSettingsScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                InkWell(
-                  splashFactory: NoSplash.splashFactory,
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const UserGuide(),
-                      ),
-                    );
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: const Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.auto_stories_outlined,
-                          size: 25,
-                          color: AppColor.ftBottomNavigatorUnSelectorColor,
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          'User Guide',
-                          style: TextStyle(
-                            color: AppColor.ftBottomNavigatorUnSelectorColor,
-                            fontSize: 14,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+               
                 InkWell(
                   splashFactory: NoSplash.splashFactory,
                   onTap: () {
@@ -264,78 +226,7 @@ class AppSettingsScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                InkWell(
-                  splashFactory: NoSplash.splashFactory,
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const AboutApp(),
-                      ),
-                    );
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: const Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Ionicons.information_circle_outline,
-                          size: 25,
-                          color: AppColor.ftBottomNavigatorUnSelectorColor,
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          'About App',
-                          style: TextStyle(
-                            color: AppColor.ftBottomNavigatorUnSelectorColor,
-                            fontSize: 14,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                InkWell(
-                  splashFactory: NoSplash.splashFactory,
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ContactUs(),
-                      ),
-                    );
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: const Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Ionicons.mail_open_outline,
-                          size: 25,
-                          color: AppColor.ftBottomNavigatorUnSelectorColor,
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          'Contact Us',
-                          style: TextStyle(
-                            color: AppColor.ftBottomNavigatorUnSelectorColor,
-                            fontSize: 14,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+               
               ],
             ),
           ),
